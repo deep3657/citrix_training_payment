@@ -9,3 +9,4 @@ batchlog.*
 *.class
 *.component
 *.prefs
+*.classpath
