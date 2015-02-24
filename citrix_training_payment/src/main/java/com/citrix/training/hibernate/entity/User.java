@@ -1,9 +1,6 @@
 package com.citrix.training.hibernate.entity;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,13 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 /**
  * Handles requests for the application home page.
  */
@@ -26,6 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Table(name = "users")
 public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4493072961315191755L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
