@@ -6,3 +6,6 @@ comments
 .DS_Store
 batchlog
 batchlog.*
+*.class
+*.component
+*.prefs
