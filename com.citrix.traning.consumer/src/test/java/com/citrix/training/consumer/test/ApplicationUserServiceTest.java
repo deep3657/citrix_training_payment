@@ -17,7 +17,7 @@ public class ApplicationUserServiceTest {
 
 	private RestUtilityService restUtilityService;
 
-	private String url = "https://www.citrix.users.com/users";
+	private String url = "http://localhost:8080/training";
 
 	@Before
 	public void initTest() {
@@ -33,7 +33,7 @@ public class ApplicationUserServiceTest {
 	public void testGetUserById() {
 		User user = new User(2L, "shiv", "prasad");
 		RestResponse<User> userResponse = new RestResponse<User>(user);
-		EasyMock.expect(restUtilityService.get(url, User.class)).andReturn(
+		EasyMock.expect(restUtilityService.get(url+"/api/user/2", User.class)).andReturn(
 				userResponse);
 		EasyMock.replay(restUtilityService);
 		User finalUser = applicationUserService.getUser(2L);
@@ -43,7 +43,7 @@ public class ApplicationUserServiceTest {
 	
 	@Test
 	public void testGetUserByIdAndAnswer() {
-		EasyMock.expect(restUtilityService.get(url, User.class)).andAnswer(new IAnswer<RestResponse<User>>() {
+		EasyMock.expect(restUtilityService.get(url+"/api/user/2", User.class)).andAnswer(new IAnswer<RestResponse<User>>() {
 			public RestResponse<User> answer() throws Throwable {
 				User user = new User(2L, "shiv", "prasad");
 				RestResponse<User> userResponse = new RestResponse<User>(user);
@@ -61,7 +61,7 @@ public class ApplicationUserServiceTest {
 	public void testDeleteUserById() {
 		restUtilityService.delete(url);
 		EasyMock.expectLastCall();
-		EasyMock.expect(restUtilityService.get(url, User.class))
+		EasyMock.expect(restUtilityService.get(url+"/api/user/2", User.class))
 				.andReturn(null);
 		EasyMock.replay(restUtilityService);
 		applicationUserService.delete(2L);
@@ -73,7 +73,7 @@ public class ApplicationUserServiceTest {
 	public void testGetUserByIdAndThrowException() {
 		User user = new User(2L, "shiv", "prasad");
 		RestResponse<User> userResponse = new RestResponse<User>(user);
-		EasyMock.expect(restUtilityService.get(url, User.class))
+		EasyMock.expect(restUtilityService.get(url+"/api/user/2", User.class))
 				.andReturn(userResponse)
 				.andThrow(new RuntimeException("Failed To Connect"));
 		EasyMock.replay(restUtilityService);
@@ -88,7 +88,7 @@ public class ApplicationUserServiceTest {
 	public void testGetUserByIdFalseVerify() {
 		User user = new User(2L, "shiv", "prasad");
 		RestResponse<User> userResponse = new RestResponse<User>(user);
-		EasyMock.expect(restUtilityService.get(url, User.class))
+		EasyMock.expect(restUtilityService.get(url+"/api/user/2", User.class))
 				.andReturn(userResponse).andThrow(new RuntimeException("Failed To Connect")).times(2);
 		EasyMock.replay(restUtilityService);
 		try {

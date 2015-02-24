@@ -7,6 +7,8 @@ public class ApplicationUserService {
 	private final RestUtilityService restUtilityService;
 
 	private final String url;
+	
+	private final String GET_USER_URL = "/api/user/";
 
 	public ApplicationUserService(RestUtilityService restUtilityService,
 			String url) {
@@ -15,7 +17,7 @@ public class ApplicationUserService {
 	}
 
 	public User getUser(Long id) {
-		RestResponse<User> restResponse = restUtilityService.get(url,
+		RestResponse<User> restResponse = restUtilityService.get(url+GET_USER_URL+id,
 				User.class);
 		return restResponse != null? restResponse.getResponseObject():null;
 	}
