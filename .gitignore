@@ -1,0 +1,8 @@
+target
+comments
+.#comments
+**/*~
+*.bak
+.DS_Store
+batchlog
+batchlog.*
