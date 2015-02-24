@@ -5,6 +5,13 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,12 +22,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
-
+@Entity
+@Table(name = "users")
 public class User implements Serializable {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name = "first_name")
 	private String firstName; 
+	
+	@Column(name = "last_name")
+	private String lastName;
 	
 	public Long getId() {
 		return id;
@@ -46,7 +60,6 @@ public class User implements Serializable {
 		this.lastName = lastName;
 	}
 
-	private String lastName;
 
 	@Override
 	public int hashCode() {

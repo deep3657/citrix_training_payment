@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,16 +29,23 @@ public class Transactions implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@Column(name = "uuid")
 	private Long transactionId;
 
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "user_id", nullable = false, updatable = false)
 	private User user;
 	
+	@Column(name = "amount")
 	private BigDecimal amount;
 	
+	@Column(name = "status")
 	private Status status;
 	
+	@Column(name = "transaction_type")
 	private TransactionType transactionType;
 	
+	@Column(name = "date")
 	private Date date;
 	
 	public enum Status {
