@@ -1,10 +1,10 @@
-package com.citrix.hibernate.impl;
+package com.citrix.hibernate.dao.impl;
 
 
 import org.springframework.stereotype.Repository;
 
-import com.citrix.hibernate.DAO.HibernateDao;
-import com.citrix.hibernate.DAO.UserDao;
+import com.citrix.hibernate.dao.HibernateDao;
+import com.citrix.hibernate.dao.UserDao;
 import com.citrix.training.hibernate.entity.User;
 
 @Repository("userDao")

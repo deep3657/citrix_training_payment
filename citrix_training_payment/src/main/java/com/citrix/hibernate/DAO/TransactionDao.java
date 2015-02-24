@@ -1,4 +1,4 @@
-package com.citrix.hibernate.DAO;
+package com.citrix.hibernate.dao;
 
 import java.util.List;
 
