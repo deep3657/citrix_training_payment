@@ -57,7 +57,7 @@ public class UserApiController {
 		return savedUser;
 	}
 	
-	@ApiOperation(value="Get a user.")
+	@ApiOperation(value="Delete a user.")
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(value=HttpStatus.NO_CONTENT)

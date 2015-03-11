@@ -14,5 +14,11 @@ public interface GenericDao<E, K> {
     
 	List<E> list();
 	
+	List<E> executeQuery(String query,int page,int pageSize);
+	
+	Long count(String query);
+	
+	Long count();
+	
 }
 
