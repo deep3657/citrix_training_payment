@@ -2,7 +2,6 @@ package com.citrix.training.service;
 
 import java.util.List;
 
-import com.citrix.training.hibernate.entity.User;
 import com.citrix.training.hibernate.entity.UserQualification;
 
 public interface UserQualificationService {
