@@ -11,12 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.citrix.training.hibernate.entity.User;
 import com.citrix.training.service.UserService;
-import com.techmahindra.customerapp.web.dtos.DataTablesInputDto;
-import com.techmahindra.customerapp.web.dtos.DataTablesListDto;
 
 /**
  * Handles requests for the application home page.
@@ -53,10 +49,5 @@ public class HomeController {
 		return "users";
 	}
 
-	@RequestMapping(value = "/datatables/user", method = RequestMethod.GET)
-	@ResponseBody
-	public DataTablesListDto<User> list(DataTablesInputDto dataTablesInputDto) {
-		return userService.dataTableUserList(dataTablesInputDto);
-	}
 
 }
