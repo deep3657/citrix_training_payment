@@ -2,6 +2,8 @@ package com.citrix.hibernate.dao;
 
 import java.util.List;
 
+import org.hibernate.criterion.Criterion;
+
 public interface GenericDao<E, K> {
 
 	void add(E entity);
@@ -19,6 +21,8 @@ public interface GenericDao<E, K> {
 	Long count(String query);
 	
 	Long count();
+
+	List<E> list(List<Criterion> list);
 	
 }
 

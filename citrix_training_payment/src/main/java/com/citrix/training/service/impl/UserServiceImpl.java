@@ -14,10 +14,6 @@ import com.citrix.training.service.UserService;
 @Transactional
 public class UserServiceImpl implements UserService{
 	
-	private static final String COUNT_QUERY = "select count(*) from User";
-	
-	private static final String HQL_QUERY = " select u from User u";
-	
 	@Autowired
 	private UserDao userDao;
 
@@ -29,7 +25,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User update(User user) {
-		User savedUser= userDao.find(user.getId());
+		User savedUser= get(user.getId());
 		savedUser.setFirstName(user.getFirstName());
 		savedUser.setLastName(user.getLastName());
 		savedUser.setUserName(user.getUserName());
@@ -40,13 +36,16 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void delete(Long id) {
-		User user= userDao.find(id);
+		User user= get(id);
 		userDao.remove(user);
 	}
 
 	@Override
 	public User get(Long id) {
 		User user= userDao.find(id);
+		if(user==null){
+			throw new EntityNotFoundException("User could not be found with id="+id);
+		}
 		return user;
 	}
 

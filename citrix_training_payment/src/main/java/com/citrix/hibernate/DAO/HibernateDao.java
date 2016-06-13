@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
@@ -90,5 +91,15 @@ public class HibernateDao<E, K extends Serializable> implements GenericDao<E, K>
 		criteriaCount.setProjection(Projections.rowCount());
 		Long count = (Long) criteriaCount.uniqueResult();
 		return count;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<E> list(List<Criterion> list){
+		Criteria criteria = currentSession().createCriteria(daoType);
+		for (Criterion criterion : list) {
+			criteria.add(criterion);
+		}
+		return criteria.list();
 	}
 }
