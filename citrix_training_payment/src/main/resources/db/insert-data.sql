@@ -1,6 +1,6 @@
-INSERT INTO users (first_name, last_name) VALUES ('Shiv', 'Khillar');
-INSERT INTO users (first_name, last_name) VALUES ('Vinay', 'V');
-INSERT INTO users (first_name, last_name) VALUES ('Subodh', 'Kumar');
-INSERT INTO users (first_name, last_name) VALUES ('Monis', 'Majid');
-INSERT INTO users (first_name, last_name) VALUES ('Avinash', 'Kumar');
-INSERT INTO users (first_name, last_name) VALUES ('Anupa', 'Kamat');
+INSERT INTO users (id,first_name, last_name,user_name,email) VALUES (1,'Shiv', 'Khillar','spk12345','sk@dummy.com');
+INSERT INTO users (id,first_name, last_name,user_name,email) VALUES (2,'Vinay', 'V','vv12345','vv@dummy.com');
+INSERT INTO users (id,first_name, last_name,user_name,email) VALUES (3,'Subodh', 'Kumar','sk12345','sk@dummy.com');
+INSERT INTO users (id,first_name, last_name,user_name,email) VALUES (4,'Monis', 'Majid','mm12345','mm@dummy.com');
+INSERT INTO users (id,first_name, last_name,user_name,email) VALUES (5,'Avinash', 'Gautam','ag12345','ag@dummy.com');
+INSERT INTO users (id,first_name, last_name,user_name,email) VALUES (6,'Anupa', 'Kamat','ak12345','ak@dummy.com');

@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.citrix.hibernate.dao.UserDao;
 import com.citrix.training.hibernate.entity.User;
 import com.citrix.training.service.UserService;
 
 @Service("userService")
+@Transactional
 public class UserServiceImpl implements UserService{
 	
 	private static final String COUNT_QUERY = "select count(*) from User";
@@ -30,6 +32,8 @@ public class UserServiceImpl implements UserService{
 		User savedUser= userDao.find(user.getId());
 		savedUser.setFirstName(user.getFirstName());
 		savedUser.setLastName(user.getLastName());
+		savedUser.setUserName(user.getUserName());
+		savedUser.setEmail(user.getEmail());
 		userDao.update(savedUser);
 		return savedUser;
 	}
