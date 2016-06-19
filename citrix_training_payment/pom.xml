@@ -9,7 +9,8 @@
 	<version>1.0.0</version>
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springframework-version>3.2.9.RELEASE</org.springframework-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.springframework-version>4.2.2.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<hsqldb.version>2.3.2</hsqldb.version>
@@ -201,6 +202,7 @@
 
 	</dependencies>
 	<build>
+	<finalName>training</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
